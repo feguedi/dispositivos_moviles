@@ -1,13 +1,17 @@
 Button button;
 
+PImage img;
+
 void setup() {
     fullScreen();
+    img = loadImage("img/mirror.png");
     button = new Button(displayWidth - 40, displayHeight - 40);
     button.btnX = displayWidth - 40;
     button.btnY = displayHeight - 40;
 }
 
 void draw() {
+    image(img, 0, 0);
     button.update(mouseX, mouseY);
     if (button.hover) {
         
