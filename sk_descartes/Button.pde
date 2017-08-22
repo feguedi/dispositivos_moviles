@@ -7,6 +7,7 @@ public class Button {
 
     public Button (int x, int y) {
         img = loadImage("img/eraser.png");
+        btnColor;
         fill(50);
         rect(x, y, 32, 32);
         btnX = x;
@@ -17,6 +18,8 @@ public class Button {
 
     public boolean clicked() {
         if(hover) {
+            fill(100);
+            rect(btnX, btnY, 32, 32);
             return true;
         }
         else {
@@ -28,14 +31,16 @@ public class Button {
         if(overBtn(btnX, btnY)) {
             hover = true;
         }
+        else {
+            hover = false;
+        }
     }
 
-    private boolean overBtn(int x, int y) {
+    private void overBtn(int x, int y) {
         if(mouseX >= x && mouseX <= x + 32 && mouseY >= y && mouseY <= y + 32) {
-            return true;
-        }
-        else {
-            return false;
+            hover = true;
+            fill(150);
+            rect(btnX, btnY, 32, 32);
         }
     }
 }

@@ -23,22 +23,10 @@ void setup() {
             else {
                 strokeWeight(1);
             }
-            line((displayWidth / 2) - 10, (displayHeight / 2) + (unidad * i),
-                 (displayWidth / 2) + 10, (displayHeight / 2) + (unidad * i));
-            
-        }
-    }
-    for (int i = 0; i < ((displayHeight / unidad) / 2); ++i) {
-        if(i != 0) {
-            if(i % 10 == 0) {
-                strokeWeight(4);
-            }
-            else {
-                strokeWeight(1);
-            }
             line((displayWidth / 2) - 10, (displayHeight / 2) - (unidad * i),
                  (displayWidth / 2) + 10, (displayHeight / 2) - (unidad * i));
-            
+            line((displayWidth / 2) - 10, (displayHeight / 2) + (unidad * i),
+                 (displayWidth / 2) + 10, (displayHeight / 2) + (unidad * i));
         }
     }
 
@@ -52,20 +40,8 @@ void setup() {
             }
             line((displayWidth / 2) + (unidad * i), (displayHeight / 2) - 10,
                  (displayWidth / 2) + (unidad * i), (displayHeight / 2) + 10);
-            
-        }
-    }
-    for (int i = 0; i < ((displayWidth / unidad) / 2); ++i) {
-        if(i != 0) {
-            if(i % 10 == 0) {
-                strokeWeight(4);
-            }
-            else {
-                strokeWeight(1);
-            }
             line((displayWidth / 2) - (unidad * i), (displayHeight / 2) - 10,
                  (displayWidth / 2) - (unidad * i), (displayHeight / 2) + 10);
-            
         }
     }
 
@@ -77,7 +53,7 @@ void setup() {
 }
 
 void draw() {
-    
+    button.update();
 }
 
 void mousePressed() {
