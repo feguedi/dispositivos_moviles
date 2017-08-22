@@ -3,8 +3,14 @@
  */
 
 public class Colors extends {
+
+    color a, b, c;
  
-    public Colors (arguments) {
+    public Colors (float i, float j, float k) {
+         
+     }
+
+     public void setGradient() {
          
      }
  
