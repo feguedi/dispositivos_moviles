@@ -8,12 +8,12 @@ public class Button {
     public Button (int x, int y) {
         img = loadImage("img/eraser.png");
         btnColor = 50;
+        this.btnX = x;
+        this.btnY = y;
         fill(btnColor);
-        rect(x, y, 32, 32);
-        btnX = x;
-        btnY = y;
+        rect(btnX, btnY, 32, 32);
         imageMode(CENTER);
-        image(img, x + 16, y + 16, 32, 32);        
+        image(img, btnX + 16, btnY + 16, 32, 32);        
     }
 
     public boolean clicked() {
@@ -29,26 +29,24 @@ public class Button {
 
     private void update() {
         if(overBtn(btnX, btnY)) {
-            hover = true;
-            // Cambiar color del botón
+            btnColor = 100;
         }
         else {
-            hover = false;
-            // Resetear al color original del botón
+            btnColor = 50;
         }
     }
 
     private boolean overBtn(int x, int y) {
         if(mouseX >= x && mouseX <= x + 32 && mouseY >= y && mouseY <= y + 32) {
             hover = true;
-            fill(150);
+            fill(btnColor);
             rect(btnX, btnY, 32, 32);
+            imageMode(CENTER);
+            image(img, btnX + 16, btnY + 16, 32, 32);
             return true;
         }
         else {
             return false; 
         }
     }
-
-
 }

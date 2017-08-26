@@ -1,98 +1,123 @@
 Button button;
 float unidad;
-float[] origen;
+float[] origen = new float[2];
 Vector vector1, vector2;
 int cont;
 
 void setup() {
     fullScreen();
     cont = 0;
-    origen = new float[]{displayWidth / 2, displayHeight / 2};
-    background(#DBDBDB);
-    button = new Button(displayWidth - 40, displayHeight - 40);
+    origen[0] = displayWidth / 2;
+    origen[1] = displayHeight / 2;
     unidad = displayWidth / 60;
-    println("unidad: " + unidad);
-    stroke(0);
-    line(displayWidth / 2, 0, displayWidth / 2, displayHeight);
-    stroke(0);
-    line(0, displayHeight / 2, displayWidth, displayHeight / 2);
-
-    for (int i = 0; i < ((displayHeight / unidad) / 2); ++i) {
-        if(i != 0) {
-            if(i % 10 == 0) {
-                strokeWeight(4);
-            }
-            else {
-                strokeWeight(1);
-            }
-            line((displayWidth / 2) - 10, (displayHeight / 2) - (unidad * i),
-                 (displayWidth / 2) + 10, (displayHeight / 2) - (unidad * i));
-            line((displayWidth / 2) - 10, (displayHeight / 2) + (unidad * i),
-                 (displayWidth / 2) + 10, (displayHeight / 2) + (unidad * i));
-        }
-    }
-
-    for (int i = 0; i < ((displayWidth / unidad) / 2); ++i) {
-        if(i != 0) {
-            if(i % 10 == 0) {
-                strokeWeight(4);
-            }
-            else {
-                strokeWeight(1);
-            }
-            line((displayWidth / 2) + (unidad * i), (displayHeight / 2) - 10,
-                 (displayWidth / 2) + (unidad * i), (displayHeight / 2) + 10);
-            line((displayWidth / 2) - (unidad * i), (displayHeight / 2) - 10,
-                 (displayWidth / 2) - (unidad * i), (displayHeight / 2) + 10);
-        }
-    }
-
-    textSize(32);
-    text("+", (displayWidth / 2) + 10, 32);
-    text("-", 0, (displayHeight / 2) + 32);
-    text("+", displayWidth - 32, (displayHeight / 2) + 32);
-    text("-", (displayWidth / 2) + 32, displayHeight - 32);
+    smooth(2);
+    plano();
 }
 
 void draw() {
     button.update();
 }
 
-void mousePressed() {
+void mouseClicked() {
     float[] coord = {mouseX, mouseY};
-    
-    if(button.clicked()) {
-        cont = 0;
-        noStroke();
-    }
-    
+
     switch (cont) {
         case 0 :
-            vector1 = new Vector(coord, origen);
+            vector1 = new Vector(coord, origen, unidad);
             println("cont: " + cont);
             cont++;
         break;
         case 1 :
-            vector2 = new Vector(coord, origen);
+            vector2 = new Vector(coord, origen, unidad);
             println("cont: " + cont);
-            angulo(vector1, vector2);
+            angulo(new float[]{vector1.magnitud(), vector1.x, vector1.y},
+                   new float[]{vector2.magnitud(), vector2.x, vector2.y});
+            println("vector1.magnitud(): " + vector1.magnitud());
+            println("vector2.magnitud(): " + vector2.magnitud());
             cont++;
         break;
     }
+
+    if(button.clicked()) {
+        cont = 0;
+        background(0, 0);
+        plano();
+    }
 }
 
-public void angulo(Vector a, Vector b) {
-    float radio = min(a.magnitud() / 3, b.magnitud() / 3);
-    float p1 = radians(a.y / a.x);
-    float p2 = radians(b.y / b.x);
+
+public void angulo(float[] a, float[] b) {
+    float radio = min(a[0] / 3, b[0] / 3); //<>//
+    float p1 = atan(a[2] / a[1]); //<>//
+    float p2 = atan(b[2] / b[1]); //<>//
+    println("p1: " + p1);
+    println("p2: " + p2);
 
     noFill();
+    stroke(2);
     if (p1 < p2) {
         arc(origen[0], origen[1], radio, radio, p2, p1);
-        text("El ángulo es de " + (p2 - p1), b.x + a.x, b.y + a.y);
+        textSize(24);
+        text("El ángulo es de " + (radians(p2) - radians(p1)), b[1] + a[1], b[2] + a[2]);
+        println("El ángulo es de: " + (radians(p2) - radians(p1)));
     }
     else {
         arc(origen[0], origen[1], radio, radio, p1, p2);
-        text("El ángulo es de " + (p1 - p2), b.x + a.x, b.y + a.y);
+        textSize(24);
+        text("El ángulo es de " + (radians(p1) - radians(p2)), 10, displayHeight - 40);
+        println("El ángulo es de: " + radians(p1 - p2));
     }
+}
+
+public void plano() {
+    background(#DBDBDB);
+    button = new Button(displayWidth - 40, displayHeight - 40);
+    println("unidad: " + unidad);
+    strokeWeight(1);
+    stroke(0);
+    line(origen[0], 0, origen[0], displayHeight);
+    stroke(0);
+    line(0, origen[1], displayWidth, origen[1]);
+
+    for (int i = 0; i < ((displayHeight / unidad) / 2); ++i) {
+        if(i != 0) {
+            if(i % 5 == 0) {
+                strokeWeight(2);
+            }
+            else if(i % 10 == 0) {
+                strokeWeight(5);
+            }
+            else {
+                strokeWeight(1);
+            }
+        }
+        line(origen[0] - 10, origen[1] - (unidad * i),
+             origen[0] + 10, origen[1] - (unidad * i));
+        line(origen[0] - 10, origen[1] + (unidad * i),
+             origen[0] + 10, origen[1] + (unidad * i));
+    }
+
+    for (int i = 0; i < ((displayWidth / unidad) / 2); ++i) {
+        if(i != 0) {
+            if(i % 5 == 0) {
+                strokeWeight(2);
+            }
+            else if(i % 10 == 0) {
+                strokeWeight(5);
+            }
+            else {
+                strokeWeight(1);
+            }
+            line(origen[0] + (unidad * i), origen[1] - 10,
+                 origen[0] + (unidad * i), origen[1] + 10);
+            line(origen[0] - (unidad * i), origen[1] - 10,
+                 origen[0] - (unidad * i), origen[1] + 10);
+        }
+    }
+
+    textSize(32);
+    text("+", origen[0] + 10, 32);
+    text("-", 0, origen[1] + 32);
+    text("+", displayWidth - 32, origen[1] + 32);
+    text("-", origen[0] + 32, displayHeight - 32);
 }
