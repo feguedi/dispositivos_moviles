@@ -2,7 +2,7 @@ public class Button {
 
     PImage img;
     int btnX, btnY;
-    boolean hover, pressed;
+    boolean hover;
     color currentColor, btnColor;
 
     public Button (int x, int y) {

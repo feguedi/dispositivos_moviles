@@ -45,7 +45,6 @@ void mouseClicked() {
     }
 }
 
-
 public void angulo(float[] a, float[] b) {
     float radio = min(a[0] / 3, b[0] / 3); //<>//
     float p1 = atan(a[2] / a[1]); //<>//
@@ -58,14 +57,14 @@ public void angulo(float[] a, float[] b) {
     if (p1 < p2) {
         arc(origen[0], origen[1], radio, radio, p2, p1);
         textSize(24);
-        text("El ángulo es de " + (radians(p2) - radians(p1)), b[1] + a[1], b[2] + a[2]);
-        println("El ángulo es de: " + (radians(p2) - radians(p1)));
+        text("El ángulo es de " + (degrees(p2) - degrees(p1)), b[1] + a[1], b[2] + a[2]);
+        println("El ángulo es de: " + (degrees(p2) - degrees(p1)));
     }
     else {
         arc(origen[0], origen[1], radio, radio, p1, p2);
         textSize(24);
-        text("El ángulo es de " + (radians(p1) - radians(p2)), 10, displayHeight - 40);
-        println("El ángulo es de: " + radians(p1 - p2));
+        text("El ángulo es de " + (degrees(p1) - degrees(p2)), 10, displayHeight - 40);
+        println("El ángulo es de: " + degrees(p1 - p2));
     }
 }
 
@@ -81,11 +80,11 @@ public void plano() {
 
     for (int i = 0; i < ((displayHeight / unidad) / 2); ++i) {
         if(i != 0) {
-            if(i % 5 == 0) {
-                strokeWeight(2);
+            if(i == 10 || i == 20 || i == 30 || i == 40) {
+                strokeWeight(5);                
             }
-            else if(i % 10 == 0) {
-                strokeWeight(5);
+            else if(i % 5 == 0) {
+                strokeWeight(2);
             }
             else {
                 strokeWeight(1);
@@ -95,24 +94,10 @@ public void plano() {
              origen[0] + 10, origen[1] - (unidad * i));
         line(origen[0] - 10, origen[1] + (unidad * i),
              origen[0] + 10, origen[1] + (unidad * i));
-    }
-
-    for (int i = 0; i < ((displayWidth / unidad) / 2); ++i) {
-        if(i != 0) {
-            if(i % 5 == 0) {
-                strokeWeight(2);
-            }
-            else if(i % 10 == 0) {
-                strokeWeight(5);
-            }
-            else {
-                strokeWeight(1);
-            }
-            line(origen[0] + (unidad * i), origen[1] - 10,
-                 origen[0] + (unidad * i), origen[1] + 10);
-            line(origen[0] - (unidad * i), origen[1] - 10,
-                 origen[0] - (unidad * i), origen[1] + 10);
-        }
+        line(origen[0] + (unidad * i), origen[1] - 10,
+             origen[0] + (unidad * i), origen[1] + 10);
+        line(origen[0] - (unidad * i), origen[1] - 10,
+             origen[0] - (unidad * i), origen[1] + 10);
     }
 
     textSize(32);
