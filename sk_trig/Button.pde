@@ -4,13 +4,21 @@ public class Button {
     int btnX, btnY;
     boolean hover;
     color currentColor, btnColor;
-    char t;
+    char k;
 
-    public Button (int x, int y, char t) {
-        btnColor = 200;
+    public Button (int x, int y, char k) {
+        if (t == 's') {
+            btnColor = color(204, 102, 0);
+        }
+        else if (t == 'c') {
+            btnColor = color(0,206,209);
+        }
+        else {
+            btnColor = 200;
+        }
         this.btnX = x;
         this.btnY = y;
-        this.t = t;
+        this.k = k;
         setButton();
     }
 
@@ -23,7 +31,7 @@ public class Button {
     }
 
     private void setImage() {
-        switch (t) {
+        switch (k) {
             case 'p' :
                 img = loadImage("img/plus.png");
             break;
@@ -39,12 +47,13 @@ public class Button {
             default :
             break;	
         }
+
         imageMode(CENTER);
         image(img, btnX + 16, btnY + 16, 28, 28);
     }
 
     public boolean clicked() {
-        if(hover) {
+        if(overBtn(btnX, btnY)) {
             btnColor = 50;
             setButton();
             return true;
@@ -60,32 +69,42 @@ public class Button {
         if(overBtn(btnX, btnY)) {
             btnColor = 100;
             setButton();
+            addText();
         }
         else {
-            btnColor = 200;
+            if (k == 's') {
+                btnColor = color(204, 102, 0);
+            }
+            else if (k == 'c') {
+                btnColor = color(0,206,209);
+            }
+            else {
+                btnColor = 200;
+            }
             setButton();
+            addText();
         }
     }
 
     private boolean overBtn(int x, int y) {
         if(mouseX >= x && mouseX <= x + 32 && mouseY >= y && mouseY <= y + 32) {
-            hover = true;
             setButton();
             return true;
         }
         else {
-            hover = false;
             setButton();
             return false; 
         }
     }
 
     private void addText() {
+        smooth();
         textAlign(RIGHT);
         textSize(20);
-        text('Amplitud:', displayWidth - 120, displayHeight - 40);
+        fill(255);
+        text("Amplitud:", displayWidth - 120, displayHeight - 20);
         textAlign(RIGHT);
         textSize(20);
-        text('Frecuencia:', displayWidth - 120, displayHeight - 80);
+        text("Frecuencia:", displayWidth - 120, displayHeight - 60);
     }
 }
