@@ -5,7 +5,6 @@ public class Plane {
     public Plane (int w, int h) {
         this.w = w;
         this.h = h;
-        drawPlane();
     }
 
     public void drawPlane() {
@@ -18,6 +17,33 @@ public class Plane {
         for (int i = 1; i < 4; ++i) {
             strokeWeight(3);
             line((w / 4) * i, (h / 2) - 10, (w / 4) * i, (h / 2) + 10);
+            textSize(30);
+            textAlign(CENTER);
+            switch (i) {
+                case 1 :
+                    text("π / 2", (w / 4) * i, (h / 2) + 30);
+                break;	
+                case 2 :
+                    text("π", (w / 4) * i, (h / 2) + 30);
+                break;	
+                case 3 :
+                    text("3π / 2", (w / 4) * i, (h / 2) + 30);
+                break;	
+                case 4 :
+                    textAlign(RIGHT);
+                    text("2π", (w / 4) * i, (h / 2) + 30);
+                break;	
+            }
         }
+
+        // π
+    }
+
+    public void addText(float s, float p) {
+        textSize(20);
+        textAlign(LEFT);
+        text("Amplitud: " + p, 20, displayHeight - 60);
+        text("Frecuencia: " + s, 20, displayHeight - 40);
+        text("Periodo: ", 20, displayHeight - 20);
     }
 }

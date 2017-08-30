@@ -11,10 +11,15 @@ public class Button {
         this.btnX = x;
         this.btnY = y;
         this.t = t;
+        setButton();
+    }
+
+    private void setButton() {
         fill(btnColor);
         strokeWeight(0);
         rect(btnX, btnY, 32, 32);
         setImage();
+        addText();
     }
 
     private void setImage() {
@@ -40,11 +45,13 @@ public class Button {
 
     public boolean clicked() {
         if(hover) {
-            fill(100);
-            rect(btnX, btnY, 32, 32);
+            btnColor = 50;
+            setButton();
             return true;
         }
         else {
+            btnColor = 200;
+            setButton();
             return false;
         }
     }
@@ -52,22 +59,33 @@ public class Button {
     public void update() {
         if(overBtn(btnX, btnY)) {
             btnColor = 100;
+            setButton();
         }
         else {
-            btnColor = 50;
+            btnColor = 200;
+            setButton();
         }
     }
 
     private boolean overBtn(int x, int y) {
         if(mouseX >= x && mouseX <= x + 32 && mouseY >= y && mouseY <= y + 32) {
             hover = true;
-            fill(btnColor);
-            rect(btnX, btnY, 32, 32);
-            setImage();
+            setButton();
             return true;
         }
         else {
+            hover = false;
+            setButton();
             return false; 
         }
+    }
+
+    private void addText() {
+        textAlign(RIGHT);
+        textSize(20);
+        text('Amplitud:', displayWidth - 120, displayHeight - 40);
+        textAlign(RIGHT);
+        textSize(20);
+        text('Frecuencia:', displayWidth - 120, displayHeight - 80);
     }
 }
