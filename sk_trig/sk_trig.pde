@@ -80,7 +80,7 @@ void mouseClicked() {
         
         p = 0;
         s = 0;
-        waveS.v = !waveS.v;
+        waveS.v = !(waveS.v);
         waveS.reset();
         waveC.reset();
     }
@@ -93,7 +93,7 @@ void mouseClicked() {
         
         p = 0;
         s = 0;
-        waveC.v = !waveC.v;
+        waveC.v = !(waveC.v);
         waveS.reset();
         waveC.reset();
     }
