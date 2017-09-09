@@ -1,14 +1,33 @@
 public class Bar {
 
-    int x, y, h;
+    int x, y;
+    int hS, hB;
 
-    public Bar(int _h, int _x) {
-        this.h = _h;
-        this.x = _x;
+    public Bar(int h_, int x_) {
+        this.hS = h_ / 3;
+        this.x = x_;
+        y = hS / 2;
+        hB = hS / 3;
     }
 
-    void drawBar() {
-        constrain(h, 40, h - 40);
+    void bar() {
+        fill(150, 150, 150);
+        rectMode(CENTER);
+        rect(x, y, (1920 / width) * 30, hB);
+    }
+
+    void display() {
+        bar();
+        noStroke();
+        move();
+    }
+
+    void move() {
+        y = constrain(y, 15, hS - 15);
+    }
+
+    void collision () {
+        // Colores y lugar donde golpeó la bola
     }
 
 }
