@@ -7,9 +7,9 @@ public class Board {
     Ball ball;
     boolean b = false;  // Cambiar este valor para habilitar al segundo jugador(derecha)
 
-    public Board(int w, int h) {
-        this.w = w;
-        this.h = h;
+    public Board(int w_, int h_) {
+        this.w = w_;
+        this.h = h_;
         s1 = 0;
         s2 = 0; 
         background(#1e1e1e);
@@ -24,7 +24,7 @@ public class Board {
             player2 = new Player(2, h, ((int) w / 5) * 4);
             ball = new Ball(w / 2, h / 2, w, h,
                             new int[]{player1.x, player1.y, (1920 / w) * 30, player1.hB},
-                            new int[]{player2.x, player2.y, (1920 / w) * 30, ai.hB});
+                            new int[]{player2.x, player2.y, (1920 / w) * 30, player2.hB});
         }
         score1 = new Score(s1, s2, w / 4);
         score2 = new Score(s2, s1, (int) (w / 4) * 3);
@@ -33,8 +33,6 @@ public class Board {
     void update(){
         background(#1e1e1e);
         display();
-        score1.update();
-        score2.update();
         if (score1.win() || score2.win()) gameOver();
     }
 
@@ -59,27 +57,23 @@ public class Board {
     void score() {
         if (ball.x == 15) {
             s2++;
-            score1.update();
-            score2.update();
             println("Punto para P2");
         }
         if (ball.x == (w - 15)) {
             s1++;
-            score1.update();
-            score2.update();
             println("Punto para P1");
         }
+        score1.display(s1, s2);
+        score2.display(s2, s1);
     }
 
     void resetScore() {
         s1 = 0;
         s2 = 0;
     }
-
     
     void gameOver() {
         ball.gameOver(true);
-
     }
 
 }

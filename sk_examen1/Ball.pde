@@ -1,6 +1,6 @@
 public class Ball  {
 
-    public int  x, y;
+    int x, y;
     private int w, h, r;
     int[] p1, p2;
     float xSpeed = 5, ySpeed = 5;
@@ -41,7 +41,7 @@ public class Ball  {
         }
     }
 
-    public boolean gameOver(boolean g) {
+    boolean gameOver(boolean g) {
         if (g) {
             x = w / 2;
             y = y / 2;
@@ -51,6 +51,10 @@ public class Ball  {
         else {
             return false;
         }
+    }
+
+    void collision () {
+
     }
 
 }

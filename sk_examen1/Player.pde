@@ -11,27 +11,27 @@ public class Player extends Bar {
     void move() {
         if (keyPressed) {
             switch (p) {
-                case 1 :
-                    switch (key) {
-                        case 'O' :
-                        case 'o' :
-                            y += 3;
-                        break;
-                        case 'L' :
-                        case 'l' :
-                            y -= 3;
-                        break;
-                    }
-                break;
-                case 2 :    
+                case 1 :    
                     switch (key) {
                         case 'W' :
                         case 'w' :
-                            y += 3;
+                            y -= 3;
                         break;
                         case 'S' :
                         case 's' :
+                            y += 3;
+                        break;
+                    }
+                break;
+                case 2 :
+                    switch (key) {
+                        case 'O' :
+                        case 'o' :
                             y -= 3;
+                        break;
+                        case 'L' :
+                        case 'l' :
+                            y += 3;
                         break;
                     }
                 break;
