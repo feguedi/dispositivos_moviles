@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes" ?>
+    <product>
+        <name value="Floppy Disk" />
+        <quantity value="1" />
+        <size vale="3.5" />
+        <capacity value="1.38" />
+        <company name="Verbatim" />
+    </product>
+</xml>

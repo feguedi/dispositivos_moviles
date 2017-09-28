@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<!-- Primer ejemplo -->
+<product barcode="2379783">
+    <manufacturer>Verbatim</manufacturer>
+    <name>DataLive MF 2HD</name>
+    <quantity>10</quantity>
+    <color>black</color>
+    <description>Floppy Disk 3.5"</description>
+</product>
+</xml>
