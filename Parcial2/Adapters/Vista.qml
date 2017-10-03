@@ -23,7 +23,10 @@ Pane {
 
             ComboBox {
                 id: cmbPers
-                model: ["Introvertido", "Extrovertido"]
+                model: ["Introvertido", "Extrovertido"]                
+                onAccepted: {
+                    cmbTemp.cambio()
+                }
             }
         }
 
@@ -40,36 +43,70 @@ Pane {
 
             ComboBox {
                 id: cmbTemp
+                property string pers: "d"
                 model: ["--"]
                 ListModel {
                     id: mIntr
-                    ListElement { text: "Melancolico"; value: "M" }
-                    ListElement { text: "Flematico"; value: "F" }
+                    ListElement { text: "Default"; value: "d" }
+                    ListElement { text: "Melancolico"; value: "m" }
+                    ListElement { text: "Flematico"; value: "f" }
                 }
                 ListModel {
                     id: mExtr
-                    ListElement { text: "Colerico" }
-                    ListElement { text: "Sanguineo" }
+                    ListElement { text: "Default"; value: "d" }
+                    ListElement { text: "Colerico"; value: "c" }
+                    ListElement { text: "Sanguineo"; value: "s" }
                 }
 
-                function in2ex() {
-                    cmbTemp.model = mExtr
+                function cambio() {
+                    switch(pers) {
+                        case "x":
+                            cmbTemp.model = mExtr
+                        break;
+                        case "i":
+                            cmbTemp.model = mIntr
+                        default:
+                        break;
+                    }
                 }
-                function ex2in() {
-                    cmbTemp.model = mIntr
+
+                onAccepted: {
+                    pers = model.value
+                    descripcion.cambio()
                 }
             }
         }
 
         Text {
             id: descripcion
-            text: qsTr("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at ullamcorper felis. Vivamus imperdiet diam orci, eu egestas felis placerat id. Nulla ut rhoncus libero. Donec dolor arcu, dapibus nec ex sed, sagittis vestibulum nibh. Proin pretium accumsan enim quis varius. Aenean eleifend blandit eros pretium faucibus.")
+            text: parseo().Default
             wrapMode: Text.WordWrap
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
             Layout.fillWidth: true
             font.pixelSize: 12
+
+            function cambio() {
+                switch(cmbTemp.pers) {
+                    case "m":
+                        text = parseo().Introfertidos.Melancolico
+                    break;
+                    case "f":
+                        text = parseo().Introfertidos.Flematico
+                    break;
+                    case "c":
+                        text = parseo().Introfertidos.Colerico
+                    break;
+                    case "s":
+                        text = parseo().Introfertidos.Sanguineo
+                    break;
+                    default:
+                        text = parseo().Default
+                    break;
+                }
+            }
         }
+
     }
 
     function parseo() {
