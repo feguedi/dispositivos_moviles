@@ -23,9 +23,14 @@ Pane {
 
             ComboBox {
                 id: cmbPers
-                model: ["Introvertido", "Extrovertido"]                
-                onAccepted: {
+                model: ["--", "Introvertido", "Extrovertido"]
+                down: {
+                    if(currentIndex == 1) cmbTemp.pers = "i"
+                    else if(currentIndex == 2) cmbTemp.pers = "x"
+                    else cmbTemp.pers = "d"
                     cmbTemp.cambio()
+                    descripcion.cambio()
+                    // console.log("Valor de pers: ", cmbTemp.pers)
                 }
             }
         }
@@ -44,69 +49,78 @@ Pane {
             ComboBox {
                 id: cmbTemp
                 property string pers: "d"
-                model: ["--"]
+                textRole: "text"
+                model: pers === "x" ? mExtr : ( pers === "i" ? mIntr : "--" )
+
                 ListModel {
                     id: mIntr
-                    ListElement { text: "Default"; value: "d" }
-                    ListElement { text: "Melancolico"; value: "m" }
-                    ListElement { text: "Flematico"; value: "f" }
+                    ListElement { text: "Default" }
+                    ListElement { text: "Melancolico" }
+                    ListElement { text: "Flematico" }
                 }
                 ListModel {
                     id: mExtr
-                    ListElement { text: "Default"; value: "d" }
-                    ListElement { text: "Colerico"; value: "c" }
-                    ListElement { text: "Sanguineo"; value: "s" }
+                    ListElement { text: "Default" }
+                    ListElement { text: "Colerico" }
+                    ListElement { text: "Sanguineo" }
                 }
 
                 function cambio() {
+                    // console.log("Llamando a cambio de los temperamentos")
                     switch(pers) {
-                        case "x":
-                            cmbTemp.model = mExtr
+                    case "x":
+                        cmbTemp.model = mExtr
                         break;
-                        case "i":
-                            cmbTemp.model = mIntr
-                        default:
+                    case "i":
+                        cmbTemp.model = mIntr
+                        break;
+                    default:
+                        cmbTemp.model = "--"
                         break;
                     }
                 }
 
-                onAccepted: {
-                    pers = model.value
+                down: {
                     descripcion.cambio()
                 }
             }
         }
 
-        Text {
+        Label {
             id: descripcion
             text: parseo().Default
             wrapMode: Text.WordWrap
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
+            Layout.fillHeight: true
             Layout.fillWidth: true
             font.pixelSize: 12
 
             function cambio() {
-                switch(cmbTemp.pers) {
-                    case "m":
-                        text = parseo().Introfertidos.Melancolico
+                // console.log("Cambiando descripción...")
+                switch(cmbTemp.currentText) {
+                case "Melancolico":
+                    text = qsTr(parseo().Introvertidos.Melancolico)
+                    // console.log("Descripción de melancólico")
                     break;
-                    case "f":
-                        text = parseo().Introfertidos.Flematico
+                case "Flematico":
+                    text = qsTr(parseo().Introvertidos.Flematico)
+                    // console.log("Descripción de flemático")
                     break;
-                    case "c":
-                        text = parseo().Introfertidos.Colerico
+                case "Colerico":
+                    text = qsTr(parseo().Extrovertidos.Colerico)
+                    // console.log("Descripción de colérico")
                     break;
-                    case "s":
-                        text = parseo().Introfertidos.Sanguineo
+                case "Sanguineo":
+                    text = qsTr(parseo().Extrovertidos.Sanguineo)
+                    // console.log("Descripción de sanguíneo")
                     break;
-                    default:
-                        text = parseo().Default
+                default:
+                    text = qsTr(parseo().Default)
                     break;
                 }
             }
         }
-
     }
 
     function parseo() {

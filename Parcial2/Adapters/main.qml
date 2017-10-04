@@ -4,13 +4,12 @@ import QtQuick.Layouts 1.3
 
 ApplicationWindow {
     visible: true
-    width: 640
-    height: 480
+    width: 360
+    height: 616
     title: qsTr("Adapters")
 
     Vista {
         id: vista
         anchors.fill: parent
-
     }
 }

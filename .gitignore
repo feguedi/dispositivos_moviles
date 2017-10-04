@@ -1,6 +1,7 @@
 # Built application files
 *.apk
 *.ap_
+build-*/
 
 # Files for the ART/Dalvik VM
 *.dex
@@ -58,3 +59,4 @@ freeline_project_description.json
 *.autosave
 
 *.pro.user
+*.qmlc
