@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>Temperamentos.qml</file>
+        <file>Descripcion.qml</file>
+        <file>info.json</file>
+    </qresource>
+</RCC>

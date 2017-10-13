@@ -1,0 +1,17 @@
+{
+    "Default": "Lorem ipsum dolor sit amet, ne nec ullum tation, sint mentitum phaedrum eu pro, mel definiebas instructior no. Unum solet euripidis per te. Omnium eloquentiam cu usu, appareat philosophia pri et, dolore cotidieque at nam. Pri te agam accusam instructior, ius noster intellegebat no, no integre mnesarchum vel.",
+
+    "Introvertidos": {
+
+        "Melancolico": "El melancólico es el más rico y complejo de todos los temperamentos. Suele producir tipos analíticos, abnegados, dotados y perfeccionistas. Es de una naturaleza emocional muy sensible, predispuesto a veces a la depresión.",
+
+        "Flematico": "Es un individuo calmado, tranquilo, que nunca se descompone y que tiene un punto de ebullición tan elevado que casi nunca se enfada. Generalmente, ese temperamento de personas muy capaces y equilibradas. Es el tipo de persona más fácil de tratar y es por esa naturaleza el más agradable de los temperamentos."
+    },
+
+    "Extrovertidos": {
+
+        "Colerico": "Es caluroso, rápido, activo, práctico, voluntarioso, autosuficiente y muy independiente. Tiende a ser decidido y de firmes opiniones, tanto para sí mismo como para otras personas, y tiende a tratar de imponerlas. Es extrovertido, no hasta el punto del sanguíneo.",
+
+        "Sanguineo": "Es receptiva por naturaleza, las impresiones externas encuentran fácil entrada en su interior en donde provocan un alud de respuestas. Tiende a tomar decisiones basándose en los sentimientos más que en la reflexión. Es tan comunicativo que, es considerado un súper extrovertido."
+    }
+}
