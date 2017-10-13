@@ -30,7 +30,6 @@ Pane {
                     else cmbTemp.pers = "d"
                     cmbTemp.cambio()
                     descripcion.cambio()
-                    // console.log("Valor de pers: ", cmbTemp.pers)
                 }
             }
         }
@@ -66,7 +65,6 @@ Pane {
                 }
 
                 function cambio() {
-                    // console.log("Llamando a cambio de los temperamentos")
                     switch(pers) {
                     case "x":
                         cmbTemp.model = mExtr
@@ -97,23 +95,18 @@ Pane {
             font.pixelSize: 12
 
             function cambio() {
-                // console.log("Cambiando descripción...")
                 switch(cmbTemp.currentText) {
                 case "Melancolico":
                     text = qsTr(parseo().Introvertidos.Melancolico)
-                    // console.log("Descripción de melancólico")
                     break;
                 case "Flematico":
                     text = qsTr(parseo().Introvertidos.Flematico)
-                    // console.log("Descripción de flemático")
                     break;
                 case "Colerico":
                     text = qsTr(parseo().Extrovertidos.Colerico)
-                    // console.log("Descripción de colérico")
                     break;
                 case "Sanguineo":
                     text = qsTr(parseo().Extrovertidos.Sanguineo)
-                    // console.log("Descripción de sanguíneo")
                     break;
                 default:
                     text = qsTr(parseo().Default)
