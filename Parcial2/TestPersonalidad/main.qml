@@ -7,11 +7,11 @@ import QtGraphicalEffects 1.0
 ApplicationWindow {
     id: window
     visible: true
-    width: 640
-    height: 480
+    width: 720
+    height: 1270
     title: qsTr("Test de Personalidad")
 
-    property var txt: "Tienes una personalidad "
+    property string txt: "Tienes una personalidad "
     property var valores: [pg.ter.currentIndex,
                            pg.vol.currentIndex,
                            pg.acu.currentIndex]
@@ -81,7 +81,6 @@ ApplicationWindow {
                             color: "#80000000"
                         }
                     }
-                    // text: valores[0] !== 0 && valores[1] !== 0 && valores[2] !== 0 ? qsTr(txt + actualiza()) : qsTr("")
                     font.pointSize: 24
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
@@ -133,7 +132,12 @@ ApplicationWindow {
                             break
 
                         case 6:
-                            lbl_resultado.text = txt + "fuerte, fluida y noble"
+                            if(valores[0] === 2 && valores[1] === 2 && valores[2] === 2){
+                                lbl_resultado.text = txt + "fluida"
+                            }
+                            else {
+                                lbl_resultado.text = txt + "fuerte, fluida y noble"
+                            }
                             break
 
                         case 7:
