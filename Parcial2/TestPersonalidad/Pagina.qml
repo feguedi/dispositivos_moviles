@@ -42,11 +42,12 @@ Pane {
                 Layout.fillWidth: true
                 textRole: "text"
                 model: ListModel {
-                    ListElement { text: ""; value: "df" }
-                    ListElement { text: "León"; value: "l" }
-                    ListElement { text: "Jirafa"; value: "j" }
-                    ListElement { text: "Venado"; value: "v" }
+                    ListElement { text: ""; value: 0 }
+                    ListElement { text: "León"; value: 1 }
+                    ListElement { text: "Jirafa"; value: 2 }
+                    ListElement { text: "Venado"; value: 3 }
                 }
+
             }
         }
 
@@ -74,10 +75,10 @@ Pane {
                 Layout.fillWidth: true
                 textRole: "text"
                 model: ListModel {
-                    ListElement { text: ""; value: "df" }
-                    ListElement { text: "Delfín"; value: "d" }
-                    ListElement { text: "Tiburón"; value: "t" }
-                    ListElement { text: "Piraña"; value: "pi" }
+                    ListElement { text: ""; value: 0 }
+                    ListElement { text: "Delfín"; value: 1 }
+                    ListElement { text: "Tiburón"; value: 2 }
+                    ListElement { text: "Piraña"; value: 3 }
                 }
             }
         }
@@ -106,10 +107,10 @@ Pane {
                 Layout.fillWidth: true
                 textRole: "text"
                 model: ListModel {
-                    ListElement { text: ""; value: "df" }
-                    ListElement { text: "Cóndor"; value: "c" }
-                    ListElement { text: "Buitre"; value: "b" }
-                    ListElement { text: "Paloma"; value: "pa" }
+                    ListElement { text: ""; value: 0 }
+                    ListElement { text: "Cóndor"; value: 1 }
+                    ListElement { text: "Buitre"; value: 2 }
+                    ListElement { text: "Paloma"; value: 3 }
                 }
             }
         }
