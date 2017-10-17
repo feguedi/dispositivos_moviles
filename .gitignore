@@ -60,4 +60,5 @@ freeline_project_description.json
 
 *.pro.user
 *.qmlc
+*.jsc
 .DS_Store
