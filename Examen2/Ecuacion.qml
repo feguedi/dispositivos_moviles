@@ -105,11 +105,14 @@ Page {
     function chng_lbl() {
         var mcd = Op.euc(tmb_a.currentIndex, tmb_b.currentIndex)[2]
         var x, y = []
+
         x = Op.euc(tmb_a.currentIndex, tmb_b.currentIndex)[3]
         y = Op.euc(tmb_a.currentIndex, tmb_b.currentIndex)[4]
         x.reverse(); y.reverse()
+
         if(x[1] === 1 && y[1] === 0 && x[2] === 1 && y[2] === 0) {
             x.length = x.length; y.length = y.length
+
             if(x[1] !== 0 && y[1] !== 0) {
                 lbl_x.text = qsTr(x[0].toString() + ", " + x[1].toString())
                 lbl_y.text = qsTr(y[0].toString() + ", " + y[1].toString())
@@ -119,16 +122,11 @@ Page {
             }
         }
         else {
+
             x.length = 3; y.length = 3
             lbl_x.text = qsTr(x[0].toString() + ", " + x[1].toString() + ", " + x[2].toString() + ", ...")
             lbl_y.text = qsTr(y[0].toString() + ", " + y[1].toString() + ", " + y[2].toString() + ", ...")
         }
-
-        console.log("Tumbler a: ", tmb_a.currentIndex)
-        console.log("Tumbler b: ", tmb_b.currentIndex)
-
-        console.log("x: ", x)
-        console.log("y: ", y)
 
         lbl_mcd.text = mcd.toString()
     }

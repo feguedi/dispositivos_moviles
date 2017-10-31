@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>Keyboard.qml</file>
+        <file>Cleat.qml</file>
+        <file>Calculator.qml</file>
+        <file>Display.qml</file>
+        <file>Operations.js</file>
+    </qresource>
+</RCC>
