@@ -8,7 +8,8 @@ Page {
     height: 1270
     width: 720
 
-    property int nums: []
+    property var vals: []
+    property double res: ""
 
     Keyboard {
         id: keyboard
@@ -19,6 +20,23 @@ Page {
         anchors.leftMargin: 0
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 0
+
+        boton0.onClicked: Op.numeros(0, display)
+        boton1.onClicked: Op.numeros(1, display)
+        boton2.onClicked: Op.numeros(2, display)
+        boton3.onClicked: Op.numeros(3, display)
+        boton4.onClicked: Op.numeros(4, display)
+        boton5.onClicked: Op.numeros(5, display)
+        boton6.onClicked: Op.numeros(6, display)
+        boton7.onClicked: Op.numeros(7, display)
+        boton8.onClicked: Op.numeros(8, display)
+        boton9.onClicked: Op.numeros(9, display)
+        botonPto.onClicked: Op.numeros(".", display)
+
+        botonSum.onClicked: Op.suma(display, vals)
+        botonRes.onClicked: Op.resta(display, vals)
+        botonMult.onClicked: Op.multiplicacion(display, vals)
+        botonDiv.onClicked: Op.division(display, vals)
     }
 
     Cleat {
@@ -31,6 +49,35 @@ Page {
         anchors.rightMargin: 8
         anchors.bottom: keyboard.top
         anchors.bottomMargin: 0
+
+        operadores.onCurrentIndexChanged: {
+            switch (operadores.currentIndex) {
+            case 0:
+                console.log("Limpiando pantallas")
+                display.resultado = ""
+                display.valores = ""
+                vals.length = 0
+                break
+            case 1:
+                display.resultado = display.resultado.charAt(display.resultado.length - 1)
+                break
+            case 2:
+                Op.chino()
+                break
+            case 3:
+                Op.euclides()
+                break
+            case 4:
+                Op.cuadrado()
+                break
+            case 5:
+                Op.cubo()
+                break
+            case 6:
+                Op.raiz()
+                break
+            }
+        }
     }
 
     Button {
@@ -51,12 +98,15 @@ Page {
     Display {
         id: display
         anchors.bottom: cleat.top
-        anchors.bottomMargin: 0
         anchors.right: parent.right
-        anchors.rightMargin: 0
         anchors.left: parent.left
-        anchors.leftMargin: 0
         anchors.top: parent.top
-        anchors.topMargin: 0
+        anchors.margins: 0
+    }
+
+    Component.onCompleted: {
+        display.resultado = ""
+        display.valores = ""
+        display.operador = ""
     }
 }

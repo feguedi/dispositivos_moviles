@@ -2,7 +2,6 @@ import QtQuick 2.0
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.0
 
-
 Item {
     id: root
     clip: true
@@ -16,19 +15,68 @@ Item {
             color: "#eee"
         }
 
-        Repeater {
-            model: ["C", "←", "MOD", "EUC", "x²", "√"]
-
-            TabButton {
-                text: modelData
-                anchors.bottom: parent.bottom
-                anchors.top: parent.top
-                width: 230
-                font.family: "Roboto"
-                font.pointSize: 46
-                font.weight: "Light"
-                Material.accent: Material.Grey
-            }
+        TabButton {
+            text: "C"
+            anchors.bottom: parent.bottom
+            anchors.top: parent.top
+            width: 230
+            font.family: "Roboto"
+            font.pointSize: 46
+            Material.accent: Material.Grey
+        }
+        TabButton {
+            text: "←"
+            anchors.bottom: parent.bottom
+            anchors.top: parent.top
+            width: 230
+            font.family: "Roboto"
+            font.pointSize: 46
+            Material.accent: Material.Grey
+        }
+        TabButton {
+            text: "MOD"
+            anchors.bottom: parent.bottom
+            anchors.top: parent.top
+            width: 230
+            font.family: "Roboto"
+            font.pointSize: 46
+            Material.accent: Material.Grey
+        }
+        TabButton {
+            text: "EUC"
+            anchors.bottom: parent.bottom
+            anchors.top: parent.top
+            width: 230
+            font.family: "Roboto"
+            font.pointSize: 46
+            Material.accent: Material.Grey
+        }
+        TabButton {
+            text: "x²"
+            anchors.bottom: parent.bottom
+            anchors.top: parent.top
+            width: 230
+            font.family: "Roboto"
+            font.pointSize: 46
+            Material.accent: Material.Grey
+        }
+        TabButton {
+            text: "x³"
+            anchors.bottom: parent.bottom
+            anchors.top: parent.top
+            width: 230
+            font.family: "Roboto"
+            font.pointSize: 46
+            Material.accent: Material.Grey
+        }
+        TabButton {
+            text: "√"
+            anchors.bottom: parent.bottom
+            anchors.top: parent.top
+            width: 230
+            font.family: "Roboto"
+            font.pointSize: 46
+            Material.accent: Material.Grey
         }
     }
 }

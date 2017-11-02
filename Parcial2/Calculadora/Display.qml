@@ -3,21 +3,57 @@ import QtQuick.Controls 2.2
 
 Rectangle {
     id: root
-    property alias texto: txtDisp.text
+    property alias valores: txtVals.text
+    property alias resultado: txtResultado.text
+    property alias operador: txtOperador.text
 
-    color: "black"
+    color: "#212121"
 
     Label {
-        id: txtDisp
+        id: txtVals
         anchors.fill: parent
-        color: "white"
+        anchors.bottomMargin: 75
+        color: "#e0e0e0"
         textFormat: Text.RichText
         verticalAlignment: Text.AlignBottom
         horizontalAlignment: Text.AlignRight
         rightPadding: 10
         bottomPadding: 10
         font.weight: Font.Light
+        font.pointSize: 28
 
-        text: "<font size=\"42\" />Ola ke ase <br>\n<font size=\"20\" />Ola ke ase"
+        text: "34"
+    }
+
+    Label {
+        id: txtResultado
+        verticalAlignment: Text.AlignVCenter
+        anchors.top: txtVals.bottom
+        anchors.topMargin: 0
+        anchors.right: parent.right
+        anchors.rightMargin: 0
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 0
+        horizontalAlignment: Text.AlignRight
+        rightPadding: 10
+        font.pointSize: 42
+        textFormat: Text.RichText
+        color: "#e0e0e0"
+
+        text: "8"
+    }
+
+    Label {
+        id: txtOperador
+        text: qsTr("")
+        font.pointSize: 46
+        leftPadding: 10
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 0
+        anchors.left: parent.left
+        anchors.leftMargin: 0
+        anchors.top: txtVals.bottom
+        anchors.topMargin: 0
+        verticalAlignment: Text.AlignVCenter
     }
 }
