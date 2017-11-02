@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import QtQuick.Controls 2.2
+import QtQuick.Controls 2.1
 
 Rectangle {
     id: root
@@ -13,7 +13,6 @@ Rectangle {
         id: txtVals
         anchors.fill: parent
         anchors.bottomMargin: 75
-        color: "#e0e0e0"
         textFormat: Text.RichText
         verticalAlignment: Text.AlignBottom
         horizontalAlignment: Text.AlignRight
@@ -21,6 +20,7 @@ Rectangle {
         bottomPadding: 10
         font.weight: Font.Light
         font.pointSize: 28
+        color: "#e0e0e0"
 
         text: "34"
     }
@@ -45,7 +45,6 @@ Rectangle {
 
     Label {
         id: txtOperador
-        text: qsTr("")
         font.pointSize: 46
         leftPadding: 10
         anchors.bottom: parent.bottom
@@ -55,5 +54,8 @@ Rectangle {
         anchors.top: txtVals.bottom
         anchors.topMargin: 0
         verticalAlignment: Text.AlignVCenter
+        color: "#e0e0e0"
+
+        text: qsTr("")
     }
 }

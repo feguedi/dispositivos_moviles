@@ -24,7 +24,8 @@ function suma(display, array) {
     display.operador = "+"
     display.valores += display.resultado + " + "
     array.push(display.valores)
-    display.resultado = string(parseInt(array.length) + parseInt(display.resultado))
+    // display.resultado = string(parseInt(array.length) + parseInt(display.resultado))
+    display.resultado = ""
 }
 
 function resta() {

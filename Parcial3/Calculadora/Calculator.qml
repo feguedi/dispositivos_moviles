@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import QtQuick.Controls 2.2
+import QtQuick.Controls 2.1
 import QtQuick.Controls.Material 2.0
 import "Operations.js" as Op
 
@@ -9,11 +9,10 @@ Page {
     width: 720
 
     property var vals: []
-    property double res: ""
+    property double res
 
     Keyboard {
         id: keyboard
-        y: 840
         anchors.right: parent.right
         anchors.rightMargin: 0
         anchors.left: parent.left
@@ -97,6 +96,7 @@ Page {
 
     Display {
         id: display
+        operador: "+"
         anchors.bottom: cleat.top
         anchors.right: parent.right
         anchors.left: parent.left
