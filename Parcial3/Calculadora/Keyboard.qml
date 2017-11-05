@@ -4,8 +4,6 @@ import QtQuick.Layouts 1.0
 
 Item {
     id: root
-    width: 720
-    height: 430
 
     property alias boton9: btn9
     property alias boton8: btn8
@@ -25,17 +23,18 @@ Item {
     property alias botonInv: btnInv
 
     Rectangle {
+        id: rectangle
         color: "#fff"
         anchors.fill: parent
 
         GridLayout {
             id: layout_num
-            y: 840
-            height: 430
+            anchors.top: parent.top
+            anchors.topMargin: 0
             columnSpacing: 8
             rowSpacing: 0
             anchors.right: parent.right
-            anchors.rightMargin: 153
+            anchors.rightMargin: (root.width / 4) + 6
             anchors.left: parent.left
             anchors.leftMargin: 3
             anchors.bottom: parent.bottom
@@ -47,7 +46,7 @@ Item {
                 id: btn7
                 text: qsTr("7")
                 font.family: "Roboto"
-                font.pointSize: 46
+                font.pointSize: 28
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
@@ -58,7 +57,7 @@ Item {
                 id: btn8
                 text: qsTr("8")
                 font.family: "Roboto"
-                font.pointSize: 46
+                font.pointSize: 28
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
@@ -69,7 +68,7 @@ Item {
                 id: btn9
                 text: qsTr("9")
                 font.family: "Roboto"
-                font.pointSize: 46
+                font.pointSize: 28
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
@@ -80,7 +79,7 @@ Item {
                 id: btn4
                 text: qsTr("4")
                 font.family: "Roboto"
-                font.pointSize: 46
+                font.pointSize: 28
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
@@ -91,7 +90,7 @@ Item {
                 id: btn5
                 text: qsTr("5")
                 font.family: "Roboto"
-                font.pointSize: 46
+                font.pointSize: 28
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
@@ -102,7 +101,7 @@ Item {
                 id: btn6
                 text: qsTr("6")
                 font.family: "Roboto"
-                font.pointSize: 46
+                font.pointSize: 28
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
@@ -113,7 +112,7 @@ Item {
                 id: btn1
                 text: qsTr("1")
                 font.family: "Roboto"
-                font.pointSize: 46
+                font.pointSize: 28
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
@@ -124,7 +123,7 @@ Item {
                 id: btn2
                 text: qsTr("2")
                 font.family: "Roboto"
-                font.pointSize: 46
+                font.pointSize: 28
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
@@ -135,7 +134,7 @@ Item {
                 id: btn3
                 text: qsTr("3")
                 font.family: "Roboto"
-                font.pointSize: 46
+                font.pointSize: 28
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
@@ -146,7 +145,7 @@ Item {
                 id: btnInv
                 text: qsTr("+/-")
                 font.family: "Roboto"
-                font.pointSize: 46
+                font.pointSize: 28
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
@@ -157,7 +156,7 @@ Item {
                 id: btn0
                 text: qsTr("0")
                 font.family: "Roboto"
-                font.pointSize: 46
+                font.pointSize: 28
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
@@ -168,7 +167,7 @@ Item {
                 id: btnPunto
                 text: qsTr(".")
                 font.family: "Roboto"
-                font.pointSize: 46
+                font.pointSize: 28
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
@@ -178,8 +177,8 @@ Item {
 
         ColumnLayout {
             id: layout_op
-            y: 840
-            height: 430
+            anchors.top: parent.top
+            anchors.topMargin: 0
             spacing: 0
             anchors.left: layout_num.right
             anchors.leftMargin: 6
@@ -191,8 +190,9 @@ Item {
             Button {
                 id: btnSum
                 text: qsTr("+")
+
                 font.family: "Roboto"
-                font.pointSize: 46
+                font.pointSize: 28
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
@@ -203,7 +203,7 @@ Item {
                 id: btnRes
                 text: qsTr("-")
                 font.family: "Roboto"
-                font.pointSize: 46
+                font.pointSize: 28
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
@@ -214,7 +214,7 @@ Item {
                 id: btnMult
                 text: qsTr("×")
                 font.family: "Roboto"
-                font.pointSize: 46
+                font.pointSize: 28
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
@@ -225,7 +225,7 @@ Item {
                 id: btnDiv
                 text: qsTr("÷")
                 font.family: "Roboto"
-                font.pointSize: 46
+                font.pointSize: 28
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter

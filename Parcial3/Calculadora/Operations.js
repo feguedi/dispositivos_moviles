@@ -3,59 +3,53 @@
 function numeros(btn, display) {
     console.log("Se presionó la tecla " + btn)
     if (btn === ".") {
-        if (display.resultado.length > 0){
+        if (display.resultado.length > 0) {
             var chck = false
-            for(var i in display.resultado) {
-                console.log("Entraré a revisar")
+
+            for (var i in display.resultado) {
+
                 if (display.resultado.charAt(i) != ".") {
-                    console.log("Revisando " + display.resultado.charAt(i))
-                    if (i == display.resultado.length - 1 && chck == false) display.resultado += btn
-                } else { chck = true; console.log("Encontré un punto") }
+
+                    if (i == display.resultado.length - 1 && chck == false)
+                        display.resultado += btn
+                } else
+                    chck = true
             }
-        } else display.resultado = "0."
-    } else if(btn == "0") {
+        } else
+            display.resultado = "0."
+    } else if (btn == "0") {
+
         if (display.resultado.length > 0) {
             display.resultado += btn
         }
-    } else display.resultado += btn
+    } else
+        display.resultado += btn
 }
 
-function suma(display, array) {
+function suma(display, num) {
     display.operador = "+"
     display.valores += display.resultado + " + "
-    array.push(display.valores)
-    // display.resultado = string(parseInt(array.length) + parseInt(display.resultado))
-    display.resultado = ""
+    display.resultado = string((parseInt(num) + parseInt(display.resultado)))
 }
 
-function resta() {
-
+function resta(display, num) {
+    display.operador = "-"
+    display.valores += display.resultado + " - "
+    display.resultado = qsTr(parseInt(num) - parseInt(display.resultado))
 }
 
-function multiplicacion() {
-
+function multiplicacion(display, num) {
+    display.operador = "×"
+    display.valores += display.resultado + " × "
+    display.resultado = qsTr(parseInt(num) * parseInt(display.resultado))
 }
 
-function division() {
-
+function division(display, num) {
+    display.operador = "÷"
+    display.valores += display.resultado + " ÷ "
+    display.resultado = qsTr(parseInt(num) / parseInt(display.resultado))
 }
 
-function chino() {
-
-}
-
-function euclides() {
-
-}
-
-function cubo() {
-
-}
-
-function cuadrado() {
-
-}
-
-function raiz() {
+function modulo(display, num) {
 
 }

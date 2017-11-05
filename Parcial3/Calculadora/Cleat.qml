@@ -5,7 +5,13 @@ import QtQuick.Controls.Material 2.0
 Item {
     id: root
     clip: true
-    property alias operadores: tabBar
+    property int ancho
+    property alias cuadrado: btnSq
+    property alias cubo: btnCu
+    property alias raiz: btnSqrt
+    property alias modulo: btnMod
+    property alias borradoE: btnE
+    property alias borradoC: btnC
 
     TabBar {
         id: tabBar
@@ -16,64 +22,61 @@ Item {
         }
 
         TabButton {
+            id: btnC
             text: "C"
             anchors.bottom: parent.bottom
             anchors.top: parent.top
-            width: 230
+            width: ancho
             font.family: "Roboto"
             font.pointSize: 46
             Material.accent: Material.Grey
         }
         TabButton {
+            id: btnE
             text: "←"
             anchors.bottom: parent.bottom
             anchors.top: parent.top
-            width: 230
+            width: ancho
             font.family: "Roboto"
             font.pointSize: 46
             Material.accent: Material.Grey
         }
         TabButton {
+            id: btnMod
             text: "MOD"
             anchors.bottom: parent.bottom
             anchors.top: parent.top
-            width: 230
+            width: ancho
             font.family: "Roboto"
             font.pointSize: 46
             Material.accent: Material.Grey
         }
         TabButton {
-            text: "EUC"
-            anchors.bottom: parent.bottom
-            anchors.top: parent.top
-            width: 230
-            font.family: "Roboto"
-            font.pointSize: 46
-            Material.accent: Material.Grey
-        }
-        TabButton {
+            id: btnSq
             text: "x²"
             anchors.bottom: parent.bottom
             anchors.top: parent.top
-            width: 230
+            width: ancho
             font.family: "Roboto"
             font.pointSize: 46
             Material.accent: Material.Grey
         }
         TabButton {
+            id: btnCu
             text: "x³"
             anchors.bottom: parent.bottom
             anchors.top: parent.top
-            width: 230
+            width: ancho
             font.family: "Roboto"
             font.pointSize: 46
             Material.accent: Material.Grey
         }
         TabButton {
+            id: btnSqrt
             text: "√"
             anchors.bottom: parent.bottom
             anchors.top: parent.top
-            width: 230
+            width: ancho
             font.family: "Roboto"
             font.pointSize: 46
             Material.accent: Material.Grey
