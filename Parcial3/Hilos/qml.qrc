@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>Board.qml</file>
+        <file>Calculos.qml</file>
+    </qresource>
+</RCC>
