@@ -55,7 +55,7 @@ Page {
         cuadrado.onClicked: display.resultado = Math.pow(display.resultado, 2)
         cubo.onClicked: display.resultado = Math.pow(display.resultado, 3)
         raiz.onClicked: display.resultado = Math.sqrt(display.resultado)
-        modulo.onClicked: { num = display.resultado; vals.push("mod"); Op.chino(display, num) }
+        modulo.onClicked: { num = display.resultado; vals.push("mod"); Op.modulo(display, num) }
 
         borradoE.onClicked: {
             var sRes = ""
@@ -99,7 +99,7 @@ Page {
                         res = vals[i] + ops[i]
                     } else res += num
                 }
-                display.resultado = string(parseInt)
+                return string(parseInt(res))
             }
         }
     }

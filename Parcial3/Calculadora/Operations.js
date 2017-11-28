@@ -1,4 +1,4 @@
-.pragma library
+var result, m1 = 0, m2 = 0
 
 function numeros(btn, display) {
     console.log("Se presionó la tecla " + btn)
@@ -35,21 +35,35 @@ function suma(display, num) {
 function resta(display, num) {
     display.operador = "-"
     display.valores += display.resultado + " - "
-    display.resultado = qsTr(parseInt(num) - parseInt(display.resultado))
+    display.resultado = string(parseInt(num) - parseInt(display.resultado))
 }
 
 function multiplicacion(display, num) {
     display.operador = "×"
     display.valores += display.resultado + " × "
-    display.resultado = qsTr(parseInt(num) * parseInt(display.resultado))
+    display.resultado = string(parseInt(num) * parseInt(display.resultado))
 }
 
 function division(display, num) {
     display.operador = "÷"
     display.valores += display.resultado + " ÷ "
-    display.resultado = qsTr(parseInt(num) / parseInt(display.resultado))
+    display.resultado = string(parseInt(num) / parseInt(display.resultado))
 }
 
 function modulo(display, num) {
-
+    result = m1
+    var n = 0, n1 = 0, n2 = 0
+    try {
+        m2 = parseFloat(display.resultado)
+        if (m1 < 0 && m1 < m2) {
+            n = m1 / m2
+            n1 = parseInt(n)
+            n2 = n1 * m2
+            if (m1 - n2 == 0) result = 0
+            else result = m1 - n2 + m2
+        } else result = m1 % m2
+        display.resultado = result
+    } catch (err) {
+        console.log(err)
+    }
 }
