@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>Cover.qml</file>
+        <file>Player.qml</file>
+        <file>Ribbon.qml</file>
+        <file>img/pause.png</file>
+        <file>img/play.png</file>
+        <file>img/stop.png</file>
+        <file>img/pauseHovered.png</file>
+        <file>img/stopHovered.png</file>
+        <file>img/playHovered.png</file>
+        <file>src/08 - Get lucky.mp3</file>
+        <file>SlideBar.qml</file>
+        <file>src/cover.jpg</file>
+        <file>PlayerMethods.js</file>
+    </qresource>
+</RCC>
